@@ -10,6 +10,10 @@ const app = express(); // tạo express application
 const port = process.env.PORT || 8888; // init port
 const hostname = process.env.HOST_NAME;
 
+//config req.body
+app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded()); //Parse URL-encoded bodies
+
 // config template engine
 configViewEngine(app);
 
