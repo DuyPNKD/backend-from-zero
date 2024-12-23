@@ -44,27 +44,33 @@
     </div>
 
     <div class="table-container">
-        <h1 class="title">List Users</h1>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Email</th>
-                <th>Name</th>
-                <th>City</th>
-            </tr>
-            <tr>
-                <td>Peter</td>
-                <td>Griffin</td>
-                <td>$100</td>
-                <td>$100</td>
+        <%= JSON.stringify(listUsers) %>
+            <h1 class="title">List Users</h1>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>Peter</td>
+                    <td>Griffin</td>
+                    <td>$100</td>
+                    <td>$100</td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
 
-            </tr>
-            <tr>
-                <td>Lois</td>
-                <td>Griffin</td>
-                <td>$150</td>
-            </tr>
-        </table>
+                </tr>
+                <tr>
+                    <td>Lois</td>
+                    <td>Griffin</td>
+                    <td>$150</td>
+                </tr>
+            </table>
     </div>
 
 
