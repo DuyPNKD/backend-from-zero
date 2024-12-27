@@ -5,6 +5,7 @@ const path = require("path");
 const configViewEngine = require("./src/config/viewEngine"); // import file config
 const webRoutes = require("./src/routes/web");
 const connection = require("./src/config/database");
+const mongoose = require("mongoose");
 
 const app = express(); // tạo express application
 const port = process.env.PORT || 8888; // init port
@@ -12,13 +13,19 @@ const hostname = process.env.HOST_NAME;
 
 //config req.body
 app.use(express.json()); // Used to parse JSON bodies
-app.use(express.urlencoded()); //Parse URL-encoded bodies
 
 // config template engine
 configViewEngine(app);
 
 // Khai báo routes
 app.use("/", webRoutes);
+
+const kittySchema = new mongoose.Schema({
+    name: String,
+});
+const Kitten = mongoose.model("Kitten", kittySchema);
+const cat = new Kitten({name: "Hoi dan IT cat"});
+cat.save();
 
 //test connection
 (async () => {
