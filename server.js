@@ -21,10 +21,7 @@ configViewEngine(app);
 app.use("/", webRoutes);
 
 //test connection
-// A simple SELECT query
-// connection.query("SELECT * FROM Users u", function (err, results, fields) {
-//     console.log(">>>>result home page: ", results); // results contains rows returned by server
-// });
+connection();
 
 // run server trên port đã khởi tạo trước đấy
 app.listen(port, hostname, () => {
