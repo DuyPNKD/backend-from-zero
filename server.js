@@ -5,7 +5,6 @@ const path = require("path");
 const configViewEngine = require("./src/config/viewEngine"); // import file config
 const webRoutes = require("./src/routes/web");
 const connection = require("./src/config/database");
-const Kitten = require("./src/models/Kittens");
 
 const app = express(); // tạo express application
 const port = process.env.PORT || 8888; // init port
@@ -13,15 +12,13 @@ const hostname = process.env.HOST_NAME;
 
 //config req.body
 app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded({extended: true})); // for form data
 
 // config template engine
 configViewEngine(app);
 
 // Khai báo routes
 app.use("/", webRoutes);
-
-const cat = new Kitten({name: "Hoi dan IT cat model"});
-cat.save();
 
 //test connection
 (async () => {
