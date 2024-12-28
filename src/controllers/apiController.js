@@ -39,8 +39,19 @@ const putUpdateUserAPI = async (req, res) => {
     });
 };
 
+const deleteUserAPI = async (req, res) => {
+    const id = req.body.userId;
+    let result = await User.deleteOne({_id: id});
+
+    return res.status(200).json({
+        EC: 0,
+        data: result,
+    });
+};
+
 module.exports = {
     getUsersAPI,
     postCreateUserAPI,
     putUpdateUserAPI,
+    deleteUserAPI,
 };
