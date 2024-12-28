@@ -73,7 +73,7 @@ const postHandleRemoveUser = async (req, res) => {
     // await deleteUserById(id);
     let result = await User.deleteOne({_id: id});
 
-    console.log(">>>> result: ", result);
+    // console.log(">>>> result: ", result);
     res.redirect("/");
 };
 

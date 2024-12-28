@@ -4,6 +4,7 @@ const express = require("express"); //import express
 const path = require("path");
 const configViewEngine = require("./src/config/viewEngine"); // import file config
 const webRoutes = require("./src/routes/web");
+const apiRoutes = require("./src/routes/api");
 const connection = require("./src/config/database");
 
 const app = express(); // tạo express application
@@ -19,6 +20,7 @@ configViewEngine(app);
 
 // Khai báo routes
 app.use("/", webRoutes);
+app.use("/v1/api/", apiRoutes);
 
 //test connection
 (async () => {
