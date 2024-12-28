@@ -6,10 +6,14 @@ const configViewEngine = require("./src/config/viewEngine"); // import file conf
 const webRoutes = require("./src/routes/web");
 const apiRoutes = require("./src/routes/api");
 const connection = require("./src/config/database");
+const fileUpload = require("express-fileupload");
 
 const app = express(); // tạo express application
 const port = process.env.PORT || 8888; // init port
 const hostname = process.env.HOST_NAME;
+
+//condif fileupload
+app.use(fileUpload());
 
 //config req.body
 app.use(express.json()); // Used to parse JSON bodies
