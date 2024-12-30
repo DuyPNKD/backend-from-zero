@@ -69,7 +69,6 @@ module.exports = {
         });
     },
     deleteArrayCustomer: async (req, res) => {
-        console.log("check req.body: ", req.body);
         let listId = req.body.customers;
         let result = await deleteManyCustomerService(listId);
         return res.status(200).json({
