@@ -7,6 +7,7 @@ const webRoutes = require("./src/routes/web");
 const apiRoutes = require("./src/routes/api");
 const connection = require("./src/config/database");
 const fileUpload = require("express-fileupload");
+const {MongoClient} = require("mongodb");
 
 const app = express(); // tạo express application
 const port = process.env.PORT || 8888; // init port
@@ -29,8 +30,23 @@ app.use("/v1/api/", apiRoutes);
 //test connection
 (async () => {
     try {
-        await connection();
-        // run server trên port đã khởi tạo trước đấy
+        //connection của mongoose
+        // await connection();
+
+        //connection của mongodb driver
+
+        // Connection URL
+        const url = process.env.DB_HOST_WITH_DRIVER;
+        const client = new MongoClient(url);
+        // Database Name
+        const dbName = process.env.DB_NAME;
+        await client.connect();
+        console.log("Connected successfully to server");
+        const db = client.db(dbName);
+        const collection = db.collection("documents");
+
+        //
+
         app.listen(port, hostname, () => {
             console.log(`Backend zero app listening on port ${port}`);
         });

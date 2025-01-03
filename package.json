@@ -20,5 +20,8 @@
         "mongoose-delete": "^1.0.2",
         "mysql2": "^3.11.5",
         "nodemon": "3.1.7"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.4"
     }
 }
