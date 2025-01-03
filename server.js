@@ -42,9 +42,12 @@ app.use("/v1/api/", apiRoutes);
         const dbName = process.env.DB_NAME;
         await client.connect();
         console.log("Connected successfully to server");
-        const db = client.db(dbName);
-        const collection = db.collection("documents");
 
+        const db = client.db(dbName);
+        const collection = db.collection("customers");
+
+        // collection.insertOne({test: "ha Noi"});
+        // console.log(">>>find = ", await collection.findOne({test: "ha Noi"}));
         //
 
         app.listen(port, hostname, () => {
