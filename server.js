@@ -46,7 +46,9 @@ app.use("/v1/api/", apiRoutes);
         const db = client.db(dbName);
         const collection = db.collection("customers");
 
-        // collection.insertOne({test: "ha Noi"});
+        // collection.insertOne({
+        //     test: "ha Noi",
+        // });
         // console.log(">>>find = ", await collection.findOne({test: "ha Noi"}));
         //
 
